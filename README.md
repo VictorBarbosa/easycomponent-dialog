@@ -21,7 +21,7 @@ Use the Dialog method with 3 parameters
 
 ![Screenshot](documentation/3-step.png)
 
-4- In the html file just add '<easy-dialog></easy-dialog>' 
+4- In the html file just add   
 
 ![Screenshot](documentation/4-step.png)
 
