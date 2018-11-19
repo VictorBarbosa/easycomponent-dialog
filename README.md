@@ -10,6 +10,7 @@ See the step by step to use the Dialog
 
 3- In the .ts file , you have to create a   @ViewChild(DialogComponent) dialogSample: DialogComponent;
 Use the Dialog method with 3 parameters
+
 1-Message
 
 
@@ -20,7 +21,7 @@ Use the Dialog method with 3 parameters
 
 ![Screenshot](documentation/3-step.png)
 
-4- In the html file just add <easy-dialog></easy-dialog> 
+4- In the html file just add '<easy-dialog></easy-dialog>' 
 
 ![Screenshot](documentation/4-step.png)
 
