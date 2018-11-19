@@ -11,7 +11,11 @@ See the step by step to use the Dialog
 3- In the .ts file , you have to create a   @ViewChild(DialogComponent) dialogSample: DialogComponent;
 Use the Dialog method with 3 parameters
 1-Message
+
+
 2-Message type (error,attention,success,neutral)
+
+
 3-time to close
 
 ![Screenshot](documentation/3-step.png)
@@ -21,7 +25,7 @@ Use the Dialog method with 3 parameters
 ![Screenshot](documentation/4-step.png)
 
 
-5- Voila
+5- Voila!!
 
 ![Screenshot](documentation/5-step.png)
 
