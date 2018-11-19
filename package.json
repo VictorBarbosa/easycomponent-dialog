@@ -1,6 +1,11 @@
 {
-  "name": "easycomponent-dialog",
-  "version": "0.0.1",
+  "name": "easycomponent-dialog_temp",
+  "version": "1.0.0",
+  "author": {
+    "url": "git+https://github.com/VictorBarbosa/easycomponent-dialog.git",
+    "name": "Victor Barbosa",
+    "email": "victor.hugo.p.barbosa@hotmail.com"
+  },
   "peerDependencies": {
     "@angular/common": "^7.0.0",
     "@angular/core": "^7.0.0"

@@ -23,12 +23,6 @@ export class DialogComponent {
       node
     );
   }
-
-  /**
-   * AlertMethod
-   */
-  public AlertMethod(): void {}
-
   /**
    *
    * @param message
