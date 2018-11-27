@@ -33,7 +33,7 @@ Use the Dialog method with 3 parameters
 
 ----------------------------------------------------------------------------
 
-![Screenshot](documentation/8-step.png)
+![Screenshot](documentation/8-step.gif)
 
 Do. Or do not. There is no try.
 
