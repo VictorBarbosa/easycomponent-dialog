@@ -31,6 +31,9 @@ Use the Dialog method with 3 parameters
 ![Screenshot](documentation/5-step.png)
 
 
+----------------------------------------------------------------------------
+
+![Screenshot](documentation/8-step.png)
 
 Do. Or do not. There is no try.
 

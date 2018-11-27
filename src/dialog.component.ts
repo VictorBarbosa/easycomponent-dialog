@@ -1,5 +1,12 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
+import {
+  trigger,
+  transition,
+  animate,
+  style,
+  keyframes
+} from '@angular/animations';
 
 interface DialogMessage {
   DialogMessageClass: string;
@@ -9,11 +16,41 @@ interface DialogMessage {
 
 @Component({
   selector: 'easy-dialog',
-  templateUrl: './dialog.component.html'
+  templateUrl: './dialog.component.html',
+   animations: [
+    trigger('hidding', [
+      transition(
+        '*=> void',
+        animate(
+          '300ms',
+          keyframes([
+            style({ position: 'relative', left: '-30px', opacity: '1' }),
+            style({ position: 'relative', left: '0px', opacity: '0.7' }),
+            style({ position: 'relative', left: '10px', opacity: '0.5' }),
+            style({ position: 'relative', left: '50px', opacity: '0.3' }),
+            style({ position: 'relative', left: '100px', opacity: '0' })
+          ])
+        )
+      ),
+      transition(
+        'void=> *',
+        animate(
+          '300ms',
+          keyframes([
+            style({ position: 'relative', left: '100px', opacity: '1'  }),
+            style({ position: 'relative', left: '50px', opacity:  '0.7' }),
+            style({ position: 'relative', left: '10px', opacity:  '0.5' }),
+            style({ position: 'relative', left: '0px', opacity:   '0.3'  }),
+            style({ position: 'relative', left: '-30px', opacity: '0' }),
+          ])
+        )
+      )
+    ])
+  ]
 })
 export class DialogComponent {
   DialogMessageList: DialogMessage[] = [];
-
+  hidding = '';
   private SetTimeOut(node: any, timeToClose: number): void {
     setTimeout(
       (ev: any) => {
@@ -26,13 +63,13 @@ export class DialogComponent {
   /**
    *
    * @param message
-   * @param type success ,DialogMessage ,atention ,neutro
+   * @param type success ,error ,attention ,neutral
    * @param time time in seconds,for default is 1000
    */
   public Dialog(message: string, type: string, time: number = 1000): void {
     var guid = this.Guid();
     var messageColor = '';
-    switch (type) {
+    switch (type.toLocaleLowerCase()) {
       case 'attention':
         messageColor = 'Alert-Amarelo ';
         break;
@@ -74,33 +111,17 @@ export class DialogComponent {
     });
   }
   Close(dialogMessage: DialogMessage) {
-    debugger;
-
-    var index = this.DialogMessageList.findIndex(
-      x => x.Guid == dialogMessage.Guid
+    this.DialogMessageList = this.DialogMessageList.filter(
+      x => x.Guid != dialogMessage.Guid
     );
-    this.DialogMessageList.splice(index, 1);
   }
   private fadeOutEffect(fadeTarget, id): void {
     new Observable(obs => {
-      var fadeEffect = setInterval(function() {
-        try {
-          if (!fadeTarget.parentElement.style.opacity) {
-            fadeTarget.parentElement.style.opacity = 1;
-          }
-          if (fadeTarget.parentElement.style.opacity > 0) {
-            fadeTarget.parentElement.style.opacity -= 0.1;
-          } else {
-            clearInterval(fadeEffect);
-            obs.next(id);
-          }
-        } catch {
-          clearInterval(fadeEffect);
-        }
-      }, 200);
+      obs.next(id);
     }).subscribe((x: string) => {
-      var index = this.DialogMessageList.findIndex(x => x.Guid == id);
-      this.DialogMessageList.splice(index, 1);
+        this.DialogMessageList = this.DialogMessageList.filter((x:DialogMessage) => {
+        return x.Guid != id;
+      });
     });
   }
 }

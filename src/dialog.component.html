@@ -99,12 +99,13 @@
 
 
 <div    class="GesProAlert_Conteiner">
-  <div  (click)="Close(dialogMessage)" *ngFor="let dialogMessage of DialogMessageList"  [ngClass]="[ 1=== 1 ? 'GesProAlert ' + dialogMessage.DialogMessageClass + ' ' + dialogMessage.Guid : '']"   style="height: 80px;"  >
-    <div  id="{{dialogMessage.Guid}}">
-      <div class="GesProAlert_Posiciona"><br /></div>
-      {{ dialogMessage.DialogMessage }}
+
+    <div    *ngFor="let dialogMessage of DialogMessageList" [@hidding] (click)="Close(dialogMessage)"  [ngClass]="[ 1=== 1 ? 'GesProAlert ' + dialogMessage.DialogMessageClass + ' ' + dialogMessage.Guid : '']"   style="height: 80px;"  >
+      <div  id="{{dialogMessage.Guid}}">
+        <div class="GesProAlert_Posiciona"><br /></div>
+        {{ dialogMessage.DialogMessage }}
+      </div>
     </div>
-  </div>
+
 </div>
 
-<!--   -->
